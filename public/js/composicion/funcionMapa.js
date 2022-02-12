@@ -1,4 +1,4 @@
-$(function() {
+/* $(function() {
 
     var multiImgPreview = function(input, imgPreviewPlaceholder) {
 
@@ -7,10 +7,10 @@ $(function() {
 
         for (i = 0; i < filesAmount; i++)
             var reader = new FileReader();
-        reader.onload = function(event)
+        reader.onload = function(event);
         $($.parseHTML('<img>')).attr('src', event.target.result).appendTo(imgPreviewPlaceholder);
         reader.readAsDataURL(input.files[i]);
     };
     $('#images').on('change', function() multiImgPreview(this, 'div.imgPreview'));
 });
-//crea cooordenadas
+//crea cooordenadas */

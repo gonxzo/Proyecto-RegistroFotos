@@ -38,7 +38,8 @@
                                                     </div>
                                                     <div class="modal-body">
                                                         <p><strong>Nombre:</strong> {{$item->name}}</p>
-                                                        <p><strong>Correo Electronico: </strong> {{$item->email}}</p>
+                                                        <p><strong>Correo Electronico: </strong> Crypt::encryptString({{$item->email}});</p>
+                                                        <p><strong>password </strong> {{$item->email}}</p>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                                                         </div>

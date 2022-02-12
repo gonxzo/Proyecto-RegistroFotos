@@ -54,7 +54,7 @@ php artisan ui vue --auth
 
 ## SEED PERSONAL TED LA PAZ
 
-php artisan db:seed --class=PersonalTedSeeder
+php artisan db:seed --class=PermisionTableSeeder
 
 ## Referencias
 https://github.com/barryvdh/laravel-snappy

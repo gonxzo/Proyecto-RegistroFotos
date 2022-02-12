@@ -6,7 +6,7 @@
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <link rel="shortcut icon" type="images/ico" href="{{asset('img/icono.ico')}}">
-        <link rel="canonical" href="https://getbootstrap.com/docs/4.0/layout/grid/">
+       
         <title>{{ config('Proyecto', 'Proyecto') }}</title>
 
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -14,7 +14,7 @@
         <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
         <link href="{{ asset('css/estilo.css') }}" rel="stylesheet">
         <link href="{{ asset('css/estilonav.css') }}" rel="stylesheet">
-        <link href="{{ asset('css/estilocarrusel.css') }}" rel="stylesheet">
+       
 
         <link href="{{ asset('css/leaflet.css') }}" rel="stylesheet">
         <link href="{{ asset('css/Control.FullScreen.css') }}" rel="stylesheet">
@@ -26,9 +26,8 @@
         <script src="{{ asset('js/app.js') }}" defer></script>
         <script src="{{ asset('js/select2.min.js') }}" defer></script>
         <script src="{{ asset('js/composicion/funciones.js') }}" defer></script>
+        <script src="{{ asset('js/composicion/responsive.js') }}" defer></script>
         <script src="{{ asset('js/composicion/funcionMapa.js') }}" defer></script>
-        <script src="{{ asset('js/composicion/funcioncarrusel.js') }}" defer></script>
-
         <script src="{{ asset('js/leaflet.js') }}" defer></script>
         <script src="{{ asset('js/Control.FullScreen.js') }}" defer></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -53,14 +52,19 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <!-- Left Side Of Navbar -->
                         <ul class="navbar-nav mr-auto ">
-                            @can('proyectos.index')
+                            @can('projects.index')
                             <li class="nav-item">
-                                <a class="nav-link" href="{{route('proyectos.index')}} ">PROYECTOS</a>
+                                <a class="nav-link" href="{{route('projects.index')}} ">PROYECTOS</a>
                             </li>
                             @endcan
-                            @can('trabajadors.index')
+                            @can('workers.index')
                             <li class="nav-item">
-                                <a class="nav-link" href="{{route('trabajadors.index')}} ">TRABAJADORES</a>
+                                <a class="nav-link" href="{{route('workers.index')}} ">TRABAJADORES</a>
+                            </li>
+                            @endcan
+                            @can('documents.index')
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('documents.index')}} ">IMAGENES</a>
                             </li>
                             @endcan
                             @can('users.index')
@@ -73,16 +77,11 @@
                                 <a class="nav-link" href="{{route('roles.index')}} ">ROLES</a>
                             </li>
                             @endcan
-                           
-                            {{-- @can('documentos.index')
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{route('documentos.index')}} ">DOCUMENTOS</a>
-                            </li>
-                            @endcan --}}
+                          
                         </ul>
-                        <!-- Right Side Of Navbar -->
+                        
                         <ul class="navbar-nav ml-auto">
-                            <!-- Authentication Links -->
+                           
                             @guest
                             <li class="nav-item">
 

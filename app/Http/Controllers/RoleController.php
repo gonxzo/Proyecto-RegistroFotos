@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use Caffeinated\Shinobi\Models\Role;
 use Caffeinated\Shinobi\Models\Permission;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
 class RoleController extends Controller
 {
@@ -20,7 +18,7 @@ class RoleController extends Controller
         $roles=Role::paginate(10);
         return view('roles.index', compact('roles'));
     }
-
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -45,13 +43,13 @@ class RoleController extends Controller
             'slug'=>'required|max:120|unique:roles,slug',
             'description'=>'required|max:500|unique:roles,description',
             'special'=>'in:all-access,no-access|unique:roles,special',
-
+            
         ]);
         $role=Role::create($request->all());
 
         //actualizar permisos
         $role->permissions()->sync($request->get('permissions'));
-      
+
         return redirect()->route('roles.index')->with('info','Role guardada con exito!!.');
     }
     /**
@@ -97,7 +95,6 @@ class RoleController extends Controller
 
         //actualizar permisos
         $role->permissions()->sync($request->get('permissions'));
-           
         return redirect()->route('roles.index')->with('info','Role Actualizado con exito!!.');
     }
 
@@ -109,8 +106,7 @@ class RoleController extends Controller
      */
     public function destroy(Role $role)
     {
-        $segment_users = url('/').'/'.request()->segment(1);
         $role->delete();
-        return response()->json(['success' => 'success', 'ruta' => $segment_users], 200);
+        return back()->with('info','Role eliminado correctamente');
     }
 }

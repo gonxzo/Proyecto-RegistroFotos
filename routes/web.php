@@ -41,35 +41,35 @@ Route::middleware(['auth'])->group(function () {
     Route::get('users/{user}/edit', 'UserController@edit')->name('users.edit')->middleware('can:users.edit');
     Route::get('users.buscar', 'UserController@buscar')->name('users');
 
+     //DOCUMENTS
+     Route::post('documents/store', 'DocumentController@store')->name('documents.store')->middleware('can:documents.store');
+     Route::get('documents', 'DocumentController@index')->name('documents.index')->middleware('can:documents.index');
+     Route::get('documents/create', 'DocumentController@create')->name('documents.create')->middleware('can:documents.create');
+     Route::put('documents/{document}', 'DocumentController@update')->name('documents.update')->middleware('can:documents.edit');
+     Route::get('documents/{document}', 'DocumentController@show')->name('documents.show')->middleware('can:documents.show');
+     Route::delete('documents/{document}', 'DocumentController@destroy')->name('documents.destroy')->middleware('can:documents.destroy');
+     Route::get('documents_update/{document}/edit', 'DocumentController@edit')->name('documents.edit')->middleware('can:documents.edit');
     
-    //DOCUMENTOS
-    Route::post('documentos/store', 'DocumentoController@store')->name('documentos.store')->middleware('can:documentos.store');
-    Route::get('documentos', 'DocumentoController@index')->name('documentos.index')->middleware('can:documentos.index');
-    Route::get('documentos/create', 'DocumentoController@create')->name('documentos.create')->middleware('can:documentos.create');
-    Route::put('documentos/{documento}', 'DocumentoController@update')->name('documentos.update')->middleware('can:documentos.edit');
-    Route::get('documentos/{documento}', 'DocumentoController@show')->name('documentos.show')->middleware('can:documentos.show');
-    Route::delete('documentos/{documento}', 'DocumentoController@destroy')->name('documentos.destroy')->middleware('can:documentos.destroy');
-    Route::get('documentos_update/{documento}/edit', 'DocumentoController@edit')->name('documentos.edit')->middleware('can:documentos.edit');
-   
-    //PROYECTOS
-    Route::post('proyectos/store', 'ProyectoController@store')->name('proyectos.store')->middleware('can:proyectos.store');
-    Route::get('proyectos', 'ProyectoController@index')->name('proyectos.index')->middleware('can:proyectos.index');
-    Route::get('proyectos/create', 'ProyectoController@create')->name('proyectos.create')->middleware('can:proyectos.create');
-    Route::put('proyectos/{proyecto}', 'ProyectoController@update')->name('proyectos.update')->middleware('can:proyectos.edit');
-    Route::get('proyectos/{proyecto}', 'ProyectoController@show')->name('proyectos.show')->middleware('can:proyectos.show');
-    Route::delete('proyectos/{proyecto}', 'ProyectoController@destroy')->name('proyectos.destroy')->middleware('can:proyectos.destroy');
-    Route::get('proyectos/{proyecto}/edit', 'ProyectoController@edit')->name('proyectos.edit')->middleware('can:proyectos.edit');
-    Route::get('proyectos/{proyecto}', 'ProyectoController@edit')->name('proyectos.imagenes')->middleware('can:proyectos.imagenes');
+     //PROJECTS
+     Route::post('projects/store', 'ProjectController@store')->name('projects.store')->middleware('can:projects.store');
+     Route::get('projects', 'ProjectController@index')->name('projects.index')->middleware('can:projects.index');
+     Route::get('projects/create', 'ProjectController@create')->name('projects.create')->middleware('can:projects.create');
+     Route::put('projects/{project}', 'ProjectController@update')->name('projects.update')->middleware('can:projects.edit');
+     Route::get('projects/{project}', 'ProjectController@show')->name('projects.show')->middleware('can:projects.show');
+     Route::delete('projects/{project}', 'ProjectController@destroy')->name('projects.destroy')->middleware('can:projects.destroy');
+     Route::get('projects/{project}/edit', 'ProjectController@edit')->name('projects.edit')->middleware('can:projects.edit');
+     Route::get('projects/{project}', 'ProjectController@edit')->name('projects.imagenes')->middleware('can:projects.imagenes');
+     Route::get('projectspdf/{project}','ProjectController@generaPDF')->name('projects.pdf')->middleware('can:projects.pdf'); 
+      //WORKERS
+      Route::post('workers/store', 'WorkerController@store')->name('workers.store')->middleware('can:workers.store');
+      Route::get('workers', 'WorkerController@index')->name('workers.index')->middleware('can:workers.index');
+      Route::get('workers/create', 'WorkerController@create')->name('workers.create')->middleware('can:workers.create');
+      Route::put('workers/{worker}', 'WorkerController@update')->name('workers.update')->middleware('can:workers.edit');
+      Route::get('workers/{worker}', 'WorkerController@show')->name('workers.show')->middleware('can:workers.show');
+      Route::delete('workers/{worker}', 'WorkerController@destroy')->name('workers.destroy')->middleware('can:workers.destroy');
+      Route::get('workers/{worker}/edit', 'WorkerController@edit')->name('workers.edit')->middleware('can:workers.edit');
+  
     
-     //TRABAJADORES
-     Route::post('trabajadors/store', 'TrabajadorController@store')->name('trabajadors.store')->middleware('can:trabajadors.store');
-     Route::get('trabajadors', 'TrabajadorController@index')->name('trabajadors.index')->middleware('can:trabajadors.index');
-     Route::get('trabajadors/create', 'TrabajadorController@create')->name('trabajadors.create')->middleware('can:trabajadors.create');
-     Route::put('trabajadors/{trabajador}', 'TrabajadorController@update')->name('trabajadors.update')->middleware('can:trabajadors.edit');
-     Route::get('trabajadors/{trabajador}', 'TrabajadorController@show')->name('trabajadors.show')->middleware('can:trabajadors.show');
-     Route::delete('trabajadors/{trabajador}', 'TrabajadorController@destroy')->name('trabajadors.destroy')->middleware('can:trabajadors.destroy');
-     Route::get('trabajadors/{trabajador}/edit', 'TrabajadorController@edit')->name('trabajadors.edit')->middleware('can:trabajadors.edit');
- 
     //CLEAR
     Route::get('storage-link',function(){
         return Artisan::call('storage:link');

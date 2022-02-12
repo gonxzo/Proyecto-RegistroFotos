@@ -96,16 +96,6 @@ function cambiarNull(x) {
     return (x !== null ? x : '')
 }
 
-$(document).ready(function() {
-    $('#usuario').DataTable({
-        responsive: true,
-        iDisplayStart: 5,
-        iDisplayLength: 5,
-
-    });
-
-});
-
 //crea cooordenadas
 if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(success);

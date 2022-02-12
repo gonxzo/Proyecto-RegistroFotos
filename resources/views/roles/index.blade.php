@@ -12,16 +12,24 @@
                     @can('roles.create')
                     <a href="{{route('roles.create')}}" class="btn btn-sm btn-primary">Crear Un Nuevo Role</a>
                     @endcan
-                    <br><br>
+                    <br>
                     <div class="table-responsive">
-                        <table class="table table-bordered table-sm">
+                        <table id="usuario" class="table table-bordered table-sm" style="width:100%">
                             <thead>
                                 <tr class="grid">
                                     <!--th scope="col">#</th-->
                                     <th scope="col">Rol</th>
                                     <th scope="col">Abreviatura</th>
                                     <th scope="col">Descripción</th>
-                                    <th scope="col" colspan="3"></th>
+                                    @can('roles.show')
+                                    <th scope="col">Mostrar</th>
+                                    @endcan
+                                    @can('roles.edit')
+                                        <th scope="col">Editar</th>
+                                    @endcan
+                                    @can('roles.destroy')
+                                        <th scope="col">Eliminar</th>
+                                    @endcan
                                 </tr>
                             </thead>
                             <tbody>
@@ -71,7 +79,7 @@
                             </tbody>
                         </table>
                     </div>
-                    {{$roles->render()}}
+                  
                 </div>
             </div>
         </div>

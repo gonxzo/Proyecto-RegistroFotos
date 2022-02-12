@@ -60,31 +60,86 @@ class PermissionTableSeeder extends Seeder
             'description'=>'ELIMINA UN ROL EN ESPECIFICO',
         ]);
 
-        //DOCUMENTOS
+        //DOCUMENTS
         Permission::create([
             'name'=>'DOCUMENTO',
-            'slug'=>'documentos.index',
-            'description'=>'NAVEGA LA TABLA DOCUMENTO',
+            'slug'=>'documents.index',
+            'description'=>'NAVEGA LA TABLA IMAGENES',
         ]);
         Permission::create([
             'name'=>'DOCUMENTO',
-            'slug'=>'documentos.show',
-            'description'=>'VISUALIZA A UN DOCUMENTO EN ESPECIFICO',
+            'slug'=>'documents.show',
+            'description'=>'VISUALIZA A UN IMAGENES EN ESPECIFICO',
         ]);
         Permission::create([
             'name'=>'DOCUMENTO',
-            'slug'=>'documentos.create',
-            'description'=>'CREA UN NUEVO DOCUMENTO EN EL SISTEMA',
+            'slug'=>'documents.create',
+            'description'=>'CREA UN NUEVO IMAGENES EN EL SISTEMA',
         ]);
+      
         Permission::create([
             'name'=>'DOCUMENTO',
-            'slug'=>'documentos.edit',
-            'description'=>'EDITA UN DOCUMENTO EN ESPECIFICO',
+            'slug'=>'documents.destroy',
+            'description'=>'ELIMINA N REGISTRO DE IMAGEN EN ESPECIFICO',
+        ]);
+
+         //PROYECTOS
+         Permission::create([
+            'name'=>'PROYECTO',
+            'slug'=>'projects.index',
+            'description'=>'NAVEGA LA TABLA PROYECTO',
         ]);
         Permission::create([
-            'name'=>'DOCUMENTO',
-            'slug'=>'documentos.destroy',
-            'description'=>'ELIMINA UN DOCUMENTO EN ESPECIFICO',
+            'name'=>'PROYECTO',
+            'slug'=>'projects.show',
+            'description'=>'VISUALIZA A UN PROYECTO EN ESPECIFICO',
+        ]);
+        Permission::create([
+            'name'=>'PROYECTO',
+            'slug'=>'projects.create',
+            'description'=>'CREA UN NUEVO PROYECTO EN EL SISTEMA',
+        ]);
+        Permission::create([
+            'name'=>'PROYECTO',
+            'slug'=>'projects.edit',
+            'description'=>'EDITA UN PROYECTO EN ESPECIFICO',
+        ]);
+        Permission::create([
+            'name'=>'PROYECTO',
+            'slug'=>'projects.destroy',
+            'description'=>'ELIMINA UN PROYECTO EN ESPECIFICO',
+        ]);
+        Permission::create([
+            'name'=>'PROYECTO',
+            'slug'=>'projects.pdf',
+            'description'=>'SACA REPORTE DEL SEGUIMIENTO EN PDF',
+        ]);
+
+         //TRABAJADORES
+         Permission::create([
+            'name'=>'TRABAJADORES',
+            'slug'=>'workers.index',
+            'description'=>'NAVEGA LA TABLA TRABAJADORES',
+        ]);
+        Permission::create([
+            'name'=>'TRABAJADORES',
+            'slug'=>'workers.show',
+            'description'=>'VISUALIZA A UN TRABAJADOR EN ESPECIFICO',
+        ]);
+        Permission::create([
+            'name'=>'TRABAJADORES',
+            'slug'=>'workers.create',
+            'description'=>'CREA UN NUEVO TRABAJADOR EN EL SISTEMA',
+        ]);
+        Permission::create([
+            'name'=>'TRABAJADORES',
+            'slug'=>'workers.edit',
+            'description'=>'EDITA UN TRABAJADOR EN ESPECIFICO',
+        ]);
+        Permission::create([
+            'name'=>'TRABAJADORES',
+            'slug'=>'workers.destroy',
+            'description'=>'ELIMINA UN TRABAJADOR EN ESPECIFICO',
         ]);
         
     }
