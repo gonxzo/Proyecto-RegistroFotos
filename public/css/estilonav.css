@@ -50,7 +50,7 @@
 }
 
 .btn-success {
-    background-color: #0f5e2f;
+    background-color: #093a1d;
     color: white;
     font-weight: bold;
     padding-top: 5px;
@@ -78,7 +78,7 @@
 }
 
 tr:nth-child(even) {
-    background-color: #dee4e7;
+    background-color: #d4dfa5;
 }
 
 .btn-default {
@@ -100,19 +100,29 @@ tr:nth-child(even) {
     color: #ffffff;
 } */
 
-.navbar-laravel .navbar-nav .nav-link .navbar-expand-md .collapse .navbar-collapse {
-    color: rgb(255, 255, 255);
+.navbar-laravel .navbar-nav .nav-link .navbar-expand-md .collapse .navbar-toggler .navbar-collapse {
+    color: rgb(85, 28, 28);
     font-weight: bold;
 }
 
 .navbar {
+    position: relative;
     background-color: rgba(0, 0, 0, 0.8);
-    background: url(/img/fondo.jpg) no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+    background: url(/img/fondo1.jpg);
+    width: 100%;
+    height: auto;
     filter: brightness(0.5);
+    z-index: 1;
+}
+
+.navbar-toggler {
+    z-index: 2;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+}
+
+.navbar-toggler-icon {
+    z-index: 3;
 }
 
 

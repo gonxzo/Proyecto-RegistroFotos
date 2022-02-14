@@ -40,6 +40,7 @@
     </head>
     <body>
         <div id="app">
+           
             <nav class="navbar navbar-expand-md navbar-laravel navbar-nav nav-link">
                 <div class="container">
                     <a class="navbar-brand" href="{{ url('/home') }}">
@@ -51,7 +52,7 @@
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <!-- Left Side Of Navbar -->
-                        <ul class="navbar-nav mr-auto ">
+                        <ul class="navbar-nav m-auto ">
                             @can('projects.index')
                             <li class="nav-item">
                                 <a class="nav-link" href="{{route('projects.index')}} ">PROYECTOS</a>

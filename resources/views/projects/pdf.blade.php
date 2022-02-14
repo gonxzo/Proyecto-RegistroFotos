@@ -87,7 +87,7 @@
         <strong>NOMBRE DEL PROYECTO DE OBRA: </strong> {{ $project->name }}
         <hr style="width: 100%;height: 2px;">
         @foreach ($historial as $hist )
-            @if ($project->id = $hist->idproject)
+            @if ($project->id == $hist->idproject)
             <strong>FECHA Y HORA DE LA REVISION: </strong> {{ $hist->created_at }}
             <strong>OBSERVACIONES: </strong> {{ $hist->descripcion }}
                 @foreach ($document as $doc)

@@ -6,6 +6,7 @@
 <div class="form-group">
   {!! Form::label('idproject','NOMBRE DEL PROYECTO ') !!}
   <select  class="form-control" name="idproject" id="idproject">
+   
     @foreach ($project as $proy)
         <option value="{{ $proy['id'] }}">{{ $proy['name'] }}
         </option>

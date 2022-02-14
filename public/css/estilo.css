@@ -200,8 +200,9 @@ body {
 }
 
 a {
-    color: rgb(37, 83, 184);
-    text-decoration: none
+    color: rgb(29, 30, 78);
+    text-decoration: none;
+    display: block;
 }
 
 .hr {

@@ -21,7 +21,9 @@ Route::get('/', function () {
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
-
+Route::post('documents/store', 'DocumentController@store')->name('documents.store');
+Route::post('workers/store', 'WorkerController@store')->name('workers.store');
+Route::post('projects/store', 'ProjectController@store')->name('projects.store');
 
 //Routes
 Route::middleware(['auth'])->group(function () {
@@ -42,7 +44,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('users.buscar', 'UserController@buscar')->name('users');
 
      //DOCUMENTS
-     Route::post('documents/store', 'DocumentController@store')->name('documents.store')->middleware('can:documents.store');
+
      Route::get('documents', 'DocumentController@index')->name('documents.index')->middleware('can:documents.index');
      Route::get('documents/create', 'DocumentController@create')->name('documents.create')->middleware('can:documents.create');
      Route::put('documents/{document}', 'DocumentController@update')->name('documents.update')->middleware('can:documents.edit');
@@ -51,7 +53,7 @@ Route::middleware(['auth'])->group(function () {
      Route::get('documents_update/{document}/edit', 'DocumentController@edit')->name('documents.edit')->middleware('can:documents.edit');
     
      //PROJECTS
-     Route::post('projects/store', 'ProjectController@store')->name('projects.store')->middleware('can:projects.store');
+    
      Route::get('projects', 'ProjectController@index')->name('projects.index')->middleware('can:projects.index');
      Route::get('projects/create', 'ProjectController@create')->name('projects.create')->middleware('can:projects.create');
      Route::put('projects/{project}', 'ProjectController@update')->name('projects.update')->middleware('can:projects.edit');
@@ -61,7 +63,7 @@ Route::middleware(['auth'])->group(function () {
      Route::get('projects/{project}', 'ProjectController@edit')->name('projects.imagenes')->middleware('can:projects.imagenes');
      Route::get('projectspdf/{project}','ProjectController@generaPDF')->name('projects.pdf')->middleware('can:projects.pdf'); 
       //WORKERS
-      Route::post('workers/store', 'WorkerController@store')->name('workers.store')->middleware('can:workers.store');
+      
       Route::get('workers', 'WorkerController@index')->name('workers.index')->middleware('can:workers.index');
       Route::get('workers/create', 'WorkerController@create')->name('workers.create')->middleware('can:workers.create');
       Route::put('workers/{worker}', 'WorkerController@update')->name('workers.update')->middleware('can:workers.edit');
