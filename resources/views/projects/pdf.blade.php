@@ -6,6 +6,7 @@
         @page {
             margin: 0cm 0cm;
             font-family: Arial;
+
         }
 
         body {
@@ -14,38 +15,33 @@
             margin-right: 1cm;
             margin-bottom: 0.5cm;
             background-color: #ffffff;
+            padding: 40px;
         }
 
         header {
             position: fixed;
-            top: 1cm;
-            left: 6.5cm;
+            top: 0cm;
+            left: 0cm;
             right: 0cm;
-            height: 0.5cm;
-            background-color: black;
-            color: black;
+            height: 0.7cm;
+            background-color: #617c62;
+            color: white;
             text-align: center;
-            line-height: 0px;
-            padding: 20px;
-            margin: 8px;
-            border: 0px solid black;
-            float: Inherit;
-            width: 270px;
-
+            line-height: 30px;
         }
-
-
 
         footer {
             position: fixed;
             bottom: 0cm;
             left: 0cm;
             right: 0cm;
-            height: 1cm;
-            background-color: rgb(26, 57, 143);
+            height: 0.7cm;
+            background-color: #617c62;
             color: white;
             text-align: center;
             line-height: 35px;
+
+
         }
 
     </style>
@@ -56,25 +52,31 @@
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>TABLA DE PRODUCTOS</title>
 </head>
-<body>
-    <table width="100%">
-        <tr>
-            <td colspan="5" style="text-align:center;width:100%;;">
-                <img src="img/logoE.png" alt="" width="170  " height="150">
-            </td>
-            <br>
-            <td style="text-align:center;width:100%; size=1" colspan="7">
-                <P>
-                <h1>CONSULTORA & CONSTRUCTORA PEÑA-ANDRADE </h1>
-                </P>
-            </td>
 
-        </tr>
-    </table>
+<body>
+    <header>
+
+    </header>
+
     <main>
-        <hr style="width: 100%;height: 2px;">
+        <table width="100%">
+            <tr>
+                <td colspan="5" style="text-align:center;width:100%;;">
+                    <img src="img/logoE.png" alt="" width="170  " height="150">
+                </td>
+                <br>
+                <td style="text-align:center;width:100%; size=1" colspan="7">
+                    <P>
+                    <h2>CONSULTORA & CONSTRUCTORA PEÑA-ANDRADE </h2>
+                    </P>
+                </td>
+            </tr>
+        </table>
+        <strong>---------------------------------------------------------------------------------------------------------------------------------------
+        </strong>
         <h3 style="text-align:center;width:100%; height=1">REPORTE DEL SEGUIMIENTO DE LAS OBRAS A CARGO DEL SUPERVISOR
         </h3>
+
         @foreach ($worker as $trab)
             @if ($trab->idproject == $project->id)
                 @foreach ($user as $users)
@@ -85,32 +87,33 @@
             @endif
         @endforeach
         <strong>NOMBRE DEL PROYECTO DE OBRA: </strong> {{ $project->name }}
-        <hr style="width: 100%;height: 2px;">
-        @foreach ($historial as $hist )
+        @foreach ($historial as $hist)
             @if ($project->id == $hist->idproject)
-            <strong>FECHA Y HORA DE LA REVISION: </strong> {{ $hist->created_at }}
-            <strong>OBSERVACIONES: </strong> {{ $hist->descripcion }}
+                <strong>FECHA Y HORA DE LA REVISION: </strong> {{ $hist->created_at }} <br>
+                <strong>OBSERVACIONES: </strong> {{ $hist->descripcion }} <br>
+                <strong>---------------------------------------------------------------------------------------------------------------------------------------
+                </strong>
                 @foreach ($document as $doc)
                     @if ($doc->idproject == $project->id && $doc->created_at == $hist->created_at)
                         <div class='container'>
                             <table width="100%">
-                                <hr style="width: 100%;height: 2px;">
                                 <tr>
                                     <td style="text-align:center;width:100%;" colspan="7">
-                                        <img class="image" src="./uploads/{{$doc->document}}" width="500" height="320" alt=" Fecha: {{$doc->created_at}} " title="Fecha: {{$doc->created_at}} ">
+                                        <br>
+                                        <img class="image" src="./uploads/{{ $doc->document }}" width="500"
+                                            height="260" alt=" Fecha: {{ $doc->created_at }} "
+                                            title="Fecha: {{ $doc->created_at }} ">
                                     </td>
                                 </tr>
                             </table>
                         </div>
                     @endif
                 @endforeach
-                
             @endif
-            
         @endforeach
-     
     </main>
-    
+    <footer>
+    </footer>
 </body>
 
 </html>
