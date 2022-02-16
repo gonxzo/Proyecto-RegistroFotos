@@ -17,6 +17,7 @@ map.addLayer(osmOL);
 map.addControl(new L.Control.Layers({ /*'Google_Hibryd':ggl,*/ 'Open_Layers': osmOL }, {}));
 
 var Marker_Auto = [];
+var numero = 1;
 
 function Position_Dinamic() {
     var aux = [];
@@ -26,25 +27,36 @@ function Position_Dinamic() {
             var ubicacion = parseInt(data[geoloc]['id']);
             var latitude = parseFloat(data[geoloc]['latitud']);
             var longitude = parseFloat(data[geoloc]['longitud']);
+
+
             var datos12 = '<div class="modal" tabindex="-1" role="dialog"> <div class="modal-dialog" role="document">   <div class="modal-content"> <div class="modal-header"> <h5 class="modal-title">Modal title</h5>  <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span>  </button> </div> <div class="modal-body">  <p>Modal body text goes here.</p>   </div>  <div class="modal-footer"> <button type="button" class="btn btn-primary">Save changes</button>  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> </div> </div> </div> </div>'
-            var imagen = "<img src='./uploads/0.jpg' width='100px height='50px' />";
-            var imagen1 = "<img src='./uploads/1.jpg' width='100px height='50px' />";
-            var imagen2 = "<img src='./uploads/2.jpg' width='100px height='50px' />";
-            var imagen3 = "<img src='./uploads/3.jpg' width='100px height='50px' />";
-            var imagen4 = "<img src='./uploads/4.jpg' width='100px height='50px' />";
-            var imagen5 = "<img src='./uploads/5.jpg' width='100px height='50px' />";
-            var imagen6 = "<img src='./uploads/6.jpg' width='100px height='50px' />";
-            var imagen7 = "<img src='./uploads/7.jpg' width='100px height='50px' />";
-            var imagen8 = "<img src='./uploads/8.jpg' width='100px height='50px' />";
-            var imagen9 = "<img src='./uploads/9.jpg' width='100px height='50px' />";
-            var total = imagen + imagen1 + imagen2 + imagen3 + imagen4 + imagen5 + imagen6 + imagen7 + imagen8 + imagen9;
+            var imagen = "<img src='./uploads/0.jpg' width='150px height='100px' />";
+            var imagen1 = "<img src='./uploads/1.jpg' width='150px height='100px' />";
+            var imagen2 = "<img src='./uploads/2.jpg' width='150px height='100px' />";
+            var imagen3 = "<img src='./uploads/3.jpg' width='150px height='100px' />";
+            var imagen4 = "<img src='./uploads/4.jpg' width='150px height='100px' />";
+            var imagen5 = "<img src='./uploads/5.jpg' width='150px height='100px' />";
+            var imagen6 = "<img src='./uploads/6.jpg' width='150px height='100px' />";
+            var imagen7 = "<img src='./uploads/7.jpg' width='150px height='100px' />";
+            var imagen8 = "<img src='./uploads/8.jpg' width='150px height='100px' />";
+            var imagen9 = "<img src='./uploads/9.jpg' width='150px height='100px' />";
+            var imagen10 = "<img src='./uploads/10.jpg' width='150px height='100px' />";
+            var imagen11 = "<img src='./uploads/11.jpg' width='150px height='100px' />";
+            var total1 = imagen5 + imagen6 + imagen7 + imagen8 + imagen9;
+            var total2 = imagen + imagen1 + imagen2 + imagen3 + imagen4 + imagen10 + imagen11;
+            if (numero == 1) {
+                var total = total1;
+                numero = numero + 1;
+            } else {
+                var total = total2;
+                numero = 1;
+            }
             var text = "Nombre : ";
             var text1 = "Localidad :";
-            var datos = "<div style='font-size:13px;color:black; font-family: Helvetica'> " + text + data[geoloc]['name'] + "<br />" + text1 + data[geoloc]['location'] + total + "<br />";
+            var datos = "<div style='font-size:13px;color:black; font-family: Helvetica'> " + text + data[geoloc]['name'] + "<br />" + text1 + data[geoloc]['location'] + "<br />" + total;
+
             if (!Marker_Auto[ubicacion]) {
                 Marker_Auto[ubicacion] = L.marker([latitude, longitude], { icon: icono_auto }).addTo(map).bindPopup(datos).addTo(map);
-
-
             }
 
             aux[ubicacion] = Marker_Auto[ubicacion];

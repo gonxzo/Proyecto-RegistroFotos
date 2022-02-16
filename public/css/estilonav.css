@@ -108,7 +108,7 @@ tr:nth-child(even) {
 .navbar {
     position: relative;
     background-color: rgba(0, 0, 0, 0.8);
-    background: url(/img/fondo1.jpg);
+    background: url(/img/fondo1.png);
     width: 100%;
     height: auto;
     filter: brightness(0.5);
