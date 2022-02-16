@@ -173,7 +173,7 @@
                                                         @endcan
                                                         @can('projects.pdf')
                                                             <td width=10px>
-                                                                <button type="button" class="btn btn-sm btn-report"
+                                                                <button type="button" class="btn btn-sm btn-success"
                                                                     data-toggle="modal"
                                                                     data-target="#modalpdf{{ $item->id }}">
                                                                     Reportes
