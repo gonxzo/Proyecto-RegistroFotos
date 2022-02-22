@@ -49,6 +49,18 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
+         
+        $request->validate([
+        'name'=>'required',
+        'typeproject'=>'required',
+        'dateb'=>'required',
+        'datef'=>'required',
+        'dateentry'=>'required',
+        'surface'=>'required',
+        'description'=>'required',
+        'location'=>'required',
+        'latlon'=>'required',
+    ]);
         $project=Project::create($request->all());
         return redirect()->route('projects.index',$project->id)
         ->with('info','proyecto  Guardado con exito!!.');

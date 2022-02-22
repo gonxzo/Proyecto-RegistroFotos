@@ -56,27 +56,27 @@
                         <ul class="navbar-nav m-auto ">
                             @can('projects.index')
                             <li class="nav-item">
-                                <a class="nav-link" href="{{route('projects.index')}} ">PROYECTOS</a>
+                                <a class="nav-link dropdown-toggle" href="{{route('projects.index')}} ">PROYECTOS</a>
                             </li>
                             @endcan
                             @can('workers.index')
                             <li class="nav-item">
-                                <a class="nav-link" href="{{route('workers.index')}} ">TRABAJADORES</a>
+                                <a class="nav-link dropdown-toggle" href="{{route('workers.index')}} ">TRABAJADORES</a>
                             </li>
                             @endcan
                             @can('documents.index')
                             <li class="nav-item">
-                                <a class="nav-link" href="{{route('documents.index')}} ">IMAGENES</a>
+                                <a class="nav-link dropdown-toggle" href="{{route('documents.index')}} ">IMAGENES</a>
                             </li>
                             @endcan
                             @can('users.index')
                             <li class="nav-item">
-                                <a class="nav-link" href="{{route('users.index')}} ">USUARIOS</a>
+                                <a class="nav-link dropdown-toggle" href="{{route('users.index')}} ">USUARIOS</a>
                             </li>
                             @endcan
                             @can('roles.index')
                             <li class="nav-item">
-                                <a class="nav-link" href="{{route('roles.index')}} ">ROLES</a>
+                                <a class="nav-link dropdown-toggle" href="{{route('roles.index')}} ">ROLES</a>
                             </li>
                             @endcan
                           

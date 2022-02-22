@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-10">
+            <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
                         PROYECTOS
@@ -21,6 +21,7 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">Proyecto</th>
+                                        <th scope="col">Tipo</th>
                                         <th scope="col">Localidad</th>
                                         @can('projects.show')
                                             <th scope="col">Mostrar</th>
@@ -42,6 +43,7 @@
                                         @foreach ($projects as $item)
                                             <tr>
                                                 <td>{{ $item->name }} </td>
+                                                <td>{{ $item->typeproject }} </td>
                                                 <td>{{ $item->location }} </td>
                                                 @can('projects.show')
                                                     <td width=10px>
@@ -62,6 +64,18 @@
                                                                         <p><strong>Nombre del Proyecto:</strong>
                                                                             {{ $item->name }}
                                                                         </p>
+                                                                        <p><strong>Tipo de Proyecto: </strong>
+                                                                            {{ $item->typeproject }}</p>
+                                                                        <p><strong>Fecha de Inicio de la Obra: </strong>
+                                                                            {{ $item->dateb }}</p>
+                                                                        <p><strong>Fecha Fin de la Obra: </strong>
+                                                                                {{ $item->datef }}</p>
+                                                                        <p><strong>Fecha de Entraga de la Obra: </strong>
+                                                                                {{ $item->latlon }}</p>
+                                                                        <p><strong>Superficie UTIL: </strong>
+                                                                                    {{ $item->surface }}</p>
+                                                                        <p><strong>Descripcion: </strong>
+                                                                                    {{ $item->description }}</p>
                                                                         <p><strong>Localidad: </strong>
                                                                             {{ $item->location }}</p>
                                                                         <p><strong>Ubicacion del Proyecto: </strong>
@@ -118,6 +132,7 @@
                                                 @if ($trabs->iduser == Auth::user()->id && $trabs->idproject == $item->id)
                                                     <tr>
                                                         <td>{{ $item->name }} </td>
+                                                        <td>{{ $item->typeproject }} </td>
                                                         <td>{{ $item->location }} </td>
                                                         @can('projects.show')
                                                             <td width=10px>
@@ -142,10 +157,22 @@
                                                                                 <p><strong>Nombre del Proyecto:</strong>
                                                                                     {{ $item->name }}
                                                                                 </p>
+                                                                                <p><strong>Tipo de Proyecto: </strong>
+                                                                                    {{ $item->typeproject }}</p>
+                                                                                <p><strong>Fecha de Inicio de la Obra: </strong>
+                                                                                    {{ $item->dateb }}</p>
+                                                                                <p><strong>Fecha Fin de la Obra: </strong>
+                                                                                        {{ $item->datef }}</p>
+                                                                                <p><strong>Fecha de Entraga de la Obra: </strong>
+                                                                                        {{ $item->latlon }}</p>
+                                                                                <p><strong>Superficie UTIL: </strong>
+                                                                                            {{ $item->surface }}</p>
+                                                                                <p><strong>Descripcion: </strong>
+                                                                                            {{ $item->description }}</p>
                                                                                 <p><strong>Localidad: </strong>
-                                                                                    {{ $item->location }}</p>
+                                                                                            {{ $item->location }}</p>
                                                                                 <p><strong>Ubicacion del Proyecto: </strong>
-                                                                                    {{ $item->latlon }}</p>
+                                                                                            {{ $item->latlon }}</p>
                                                                                 <div class="modal-footer">
                                                                                     <button type="button"
                                                                                         class="btn btn-secondary"
@@ -206,7 +233,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-10">
+            <div class="col-md-12">
                 <div class="card-header">
                 </div>
                 <div class="card">

@@ -16,7 +16,7 @@ class CreateHistorialsTable extends Migration
         Schema::create('historials', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('idproject')->unsigned();
-            $table->foreign('idproject')->references('id')->on('projects');
+            $table->foreign('idproject')->references('id')->on('projects')->onDelete('cascade');
             $table->string('descripcion');
             $table->timestamps();
         });

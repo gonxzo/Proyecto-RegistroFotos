@@ -81,17 +81,26 @@
             @if ($trab->idproject == $project->id)
                 @foreach ($user as $users)
                     @if ($users->id == $trab->iduser)
-                        <strong>NOMBRE DEL SUPERVISOR DE OBRA: </strong> {{ $users->name }}
+                        <strong>NOMBRE DEL SUPERVISOR DE OBRA: </strong> {{ $users->name }}<br>
                     @endif
                 @endforeach
             @endif
         @endforeach
-        <strong>NOMBRE DEL PROYECTO DE OBRA: </strong> {{ $project->name }}
+        <strong>NOMBRE DEL PROYECTO: </strong> {{ $project->name }}<br>
+        <strong>TIPO DE PROYECTO: </strong> {{ $project->typeproject }}<br>
+        <strong>--------------------------------------------------------------------------------------------------------------------------------------- </strong>
+        <strong>FECHA DE INICIA: </strong> {{ $project->dateb."      "}}<strong>FECHA FIN: </strong>{{ $project->datef."      "}}<strong>FECHA DE ENTREGA: </strong> {{ $project->dateentry }} <br>
+        <strong>--------------------------------------------------------------------------------------------------------------------------------------- </strong>
+        <strong>SUPERFICIE UTIL: </strong> {{ $project->surface }}<br>
+        <strong>--------------------------------------------------------------------------------------------------------------------------------------- </strong>
+        <strong>DESCRIPCION: </strong> {{ $project->description }}
+        <strong>--------------------------------------------------------------------------------------------------------------------------------------- </strong>
+
         @foreach ($historial as $hist)
             @if ($project->id == $hist->idproject)
                 <strong>FECHA Y HORA DE LA REVISION: </strong> {{ $hist->created_at }} <br>
                 <strong>OBSERVACIONES: </strong> {{ $hist->descripcion }} <br>
-                <strong>---------------------------------------------------------------------------------------------------------------------------------------
+                <strong>--------------------------------------------------------------------------------------------------------------------------------------- </strong>
                 </strong>
                 @foreach ($document as $doc)
                     @if ($doc->idproject == $project->id && $doc->created_at == $hist->created_at)

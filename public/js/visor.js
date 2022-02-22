@@ -3,7 +3,7 @@ var icono_auto = L.icon({
     iconSize: [25, 40]
 });
 
-var map = L.map('map', { center: new L.LatLng(-16.499957537926285, -68.12999725341797), zoom: 12, zoomAnimation: true });
+var map = L.map('map', { center: new L.LatLng(-16.499957537926285, -68.12999725341797), zoom: 9, zoomAnimation: true });
 var derechos = "";
 //var ggl = new L.Google('HYBRID',{attribution: derechos});
 var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
@@ -21,36 +21,49 @@ var numero = 1;
 
 function Position_Dinamic() {
     var aux = [];
+    var image = [];
     $.getJSON('/Conexion/conexion.php?callback=parseResponse?', function(data) {
         for (var geoloc in data) {
             console.log(data);
             var ubicacion = parseInt(data[geoloc]['id']);
             var latitude = parseFloat(data[geoloc]['latitud']);
             var longitude = parseFloat(data[geoloc]['longitud']);
-
-
-            var datos12 = '<div class="modal" tabindex="-1" role="dialog"> <div class="modal-dialog" role="document">   <div class="modal-content"> <div class="modal-header"> <h5 class="modal-title">Modal title</h5>  <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span>  </button> </div> <div class="modal-body">  <p>Modal body text goes here.</p>   </div>  <div class="modal-footer"> <button type="button" class="btn btn-primary">Save changes</button>  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> </div> </div> </div> </div>'
-            var imagen = "<img src='./uploads/0.jpg' width='150px height='100px' />";
-            var imagen1 = "<img src='./uploads/1.jpg' width='150px height='100px' />";
-            var imagen2 = "<img src='./uploads/2.jpg' width='150px height='100px' />";
-            var imagen3 = "<img src='./uploads/3.jpg' width='150px height='100px' />";
-            var imagen4 = "<img src='./uploads/4.jpg' width='150px height='100px' />";
-            var imagen5 = "<img src='./uploads/5.jpg' width='150px height='100px' />";
-            var imagen6 = "<img src='./uploads/6.jpg' width='150px height='100px' />";
-            var imagen7 = "<img src='./uploads/7.jpg' width='150px height='100px' />";
-            var imagen8 = "<img src='./uploads/8.jpg' width='150px height='100px' />";
-            var imagen9 = "<img src='./uploads/9.jpg' width='150px height='100px' />";
-            var imagen10 = "<img src='./uploads/10.jpg' width='150px height='100px' />";
-            var imagen11 = "<img src='./uploads/11.jpg' width='150px height='100px' />";
-            var total1 = imagen5 + imagen6 + imagen7 + imagen8 + imagen9;
-            var total2 = imagen + imagen1 + imagen2 + imagen3 + imagen4 + imagen10 + imagen11;
+            var i = "<img src='./uploads/1a.jpg' width='150px height='100px' />";
+            var i1 = "<img src='./uploads/2a.jpg' width='150px height='100px' />";
+            var i2 = "<img src='./uploads/3a.jpg' width='150px height='100px' />";
+            var i3 = "<img src='./uploads/4a.jpg' width='150px height='100px' />";
+            var i4 = "<img src='./uploads/5a.jpg' width='150px height='100px' />";
+            var i5 = "<img src='./uploads/6a.jpg' width='150px height='100px' />";
+            var i6 = "<img src='./uploads/1b.jpg' width='150px height='100px' />";
+            var i7 = "<img src='./uploads/2b.jpg' width='150px height='100px' />";
+            var i8 = "<img src='./uploads/3b.jpg' width='150px height='100px' />";
+            var i9 = "<img src='./uploads/4b.jpg' width='150px height='100px' />";
+            var i10 = "<img src='./uploads/5b.jpg' width='150px height='100px' />";
+            var i11 = "<img src='./uploads/6b.jpg' width='150px height='100px' />";
+            var i12 = "<img src='./uploads/1c.jpg' width='150px height='100px' />";
+            var i13 = "<img src='./uploads/2c.jpg' width='150px height='100px' />";
+            var i14 = "<img src='./uploads/3c.jpg' width='150px height='100px' />";
+            var i15 = "<img src='./uploads/4c.jpg' width='150px height='100px' />";
+            var i16 = "<img src='./uploads/5c.jpg' width='150px height='100px' />";
+            var i17 = "<img src='./uploads/6c.jpg' width='150px height='100px' />";
+            var total1 = i + i1 + i2 + i3 + i4 + i5;
+            var total2 = i6 + i7 + i8 + i9 + i10 + i11;
+            var total3 = i12 + i13 + i14 + i15 + i16 + i17;
             if (numero == 1) {
                 var total = total1;
                 numero = numero + 1;
             } else {
-                var total = total2;
-                numero = 1;
+                if (numero == 2) {
+                    var total = total2;
+                    numero = numero + 1;
+                } else {
+                    var total = total3;
+                    numero = 1;
+                }
+
             }
+
+
             var text = "Nombre : ";
             var text1 = "Localidad :";
             var datos = "<div style='font-size:13px;color:black; font-family: Helvetica'> " + text + data[geoloc]['name'] + "<br />" + text1 + data[geoloc]['location'] + "<br />" + total;

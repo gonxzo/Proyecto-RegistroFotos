@@ -8,6 +8,6 @@ class Project extends Model
 {
     protected $primaryKey = 'id';
     protected $fillable = [
-        'name','location','latlon',
+        'name','typeproject','dateb','datef','dateentry','surface','description','location','latlon',
     ];
 }

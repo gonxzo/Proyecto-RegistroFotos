@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Document;
 use App\Project;
+use App\Worker;
 use App\Historial;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -21,8 +22,9 @@ class DocumentController extends Controller
     {
         $documents = Document::all();
         $projects = Project::all();
+        $workers = Worker::all();
         $documents = Document::paginate(1000);
-        return view('documents.index', compact('documents','projects'));
+        return view('documents.index', compact('documents','projects','workers'));
     } 
 
     /**
@@ -33,7 +35,8 @@ class DocumentController extends Controller
     public function create()
     {
         $project=Project::All();
-        return view('documents.create',compact('project'));
+        $worker=Worker::All();
+        return view('documents.create',compact('project','worker'));
     }
 
     /**

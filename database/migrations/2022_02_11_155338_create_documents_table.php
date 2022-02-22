@@ -16,7 +16,7 @@ class CreateDocumentsTable extends Migration
         Schema::create('documents', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('idproject')->unsigned();
-            $table->foreign('idproject')->references('id')->on('projects');
+            $table->foreign('idproject')->references('id')->on('projects')->onDelete('cascade');
             $table->string('document');
             $table->string('description')->nullable();
             $table->timestamps();

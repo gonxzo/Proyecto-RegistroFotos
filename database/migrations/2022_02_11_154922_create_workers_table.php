@@ -18,7 +18,7 @@ class CreateWorkersTable extends Migration
             $table->bigInteger('iduser')->unsigned();
             $table->foreign('iduser')->references('id')->on('users');
             $table->bigInteger('idproject')->unsigned();
-            $table->foreign('idproject')->references('id')->on('projects');
+            $table->foreign('idproject')->references('id')->on('projects')->onDelete('cascade');
             $table->string('position');
             $table->timestamps();
         });
