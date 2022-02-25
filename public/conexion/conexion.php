@@ -1,9 +1,9 @@
 <?php
 header("access-control-allow-origin: *");
 $hostname = 'localhost'; // Máquina local 
-$database = 'fotos_db';
+$database = 'registro-fotos';
 $username = 'root';
-$password = '11235813';
+$password = '';
 // Conectarse a MySQL con extensión MySQLi 
 $mysqli = new mysqli($hostname, $username, $password, $database);
 
