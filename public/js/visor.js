@@ -7,7 +7,7 @@ var map = L.map('map', { center: new L.LatLng(-16.499957537926285, -68.129997253
 var derechos = "";
 //var ggl = new L.Google('HYBRID',{attribution: derechos});
 var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-var osmAttrib = 'Map_OpenLayers © <a href="http://openstreetmap.org">OpenStreetMap   </a> contributors';
+var osmAttrib = 'Map_OpenLayers © <a href="http://openstreetmap.org">OpenStreetMap   </a> contributors';
 var osmOL = new L.TileLayer(osmUrl, { attribution: osmAttrib });
 var fsControl = new L.Control.FullScreen();
 

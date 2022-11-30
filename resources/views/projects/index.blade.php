@@ -71,7 +71,7 @@
                                                                         <p><strong>Fecha Fin de la Obra: </strong>
                                                                                 {{ $item->datef }}</p>
                                                                         <p><strong>Fecha de Entraga de la Obra: </strong>
-                                                                                {{ $item->latlon }}</p>
+                                                                                {{ $item->dateentry }}</p>
                                                                         <p><strong>Superficie UTIL: </strong>
                                                                                     {{ $item->surface }}</p>
                                                                         <p><strong>Descripcion: </strong>
@@ -98,9 +98,33 @@
                                                 @endcan
                                                 @can('projects.destroy')
                                                     <td width=10px>
-                                                        {!! Form::open(['route' => ['projects.destroy', $item->id], 'onclick' => "return confirm('Esta Seguro de Eliminar este Registro')", 'method' => 'DELETE']) !!}
-                                                        <button class="btn btn-sm btn-danger">Eliminar</button>
-                                                        {!! Form::close() !!}
+                                                        <button type="button" class="btn btn-sm btn-danger" data-toggle="modal"
+                                                        data-target="#modal2{{ $item->id }}">
+                                                        Eliminar
+                                                    </button>
+                                                    <div class="modal fade" id="modal2{{ $item->id }}" tabindex="-1"
+                                                        role="dialog" aria-labelledby="exampleModalCenterTitle"
+                                                        aria-hidden="true"  width="100%">
+                                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <img src="img/imgeliminar.jpg"
+                                                                        width="50"
+                                                                        height="50">
+                                                                    ¿Desea Eliminar el Proyecto y todos sus Registros...?
+                                                                    <div class="modal-footer">
+                                                                        {!! Form::open(['route' => ['projects.destroy', $item->id], 'method' => 'DELETE']) !!}
+                                                                        <button class="btn btn-sm btn-info">Eliminar</button>
+                                                                        {!! Form::close() !!}
+                                                                        <button type="button" class="btn btn-sm btn-info"
+                                                                            data-dismiss="modal">Cancelar</button>
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                        </div>
 
                                                     </td>
                                                 @endcan
@@ -164,7 +188,7 @@
                                                                                 <p><strong>Fecha Fin de la Obra: </strong>
                                                                                         {{ $item->datef }}</p>
                                                                                 <p><strong>Fecha de Entraga de la Obra: </strong>
-                                                                                        {{ $item->latlon }}</p>
+                                                                                        {{ $item->dateentry }}</p>
                                                                                 <p><strong>Superficie UTIL: </strong>
                                                                                             {{ $item->surface }}</p>
                                                                                 <p><strong>Descripcion: </strong>
@@ -192,9 +216,33 @@
                                                         @endcan
                                                         @can('projects.destroy')
                                                             <td width=10px>
-                                                                {!! Form::open(['route' => ['projects.destroy', $item->id], 'onclick' => "return confirm('Esta Seguro de Eliminar este Registro')", 'method' => 'DELETE']) !!}
-                                                                <button class="btn btn-sm btn-danger">Eliminar</button>
-                                                                {!! Form::close() !!}
+                                                                <button type="button" class="btn btn-sm btn-danger" data-toggle="modal"
+                                                                data-target="#modal2{{ $item->id }}">
+                                                                Eliminar
+                                                            </button>
+                                                            <div class="modal fade" id="modal2{{ $item->id }}" tabindex="-1"
+                                                                role="dialog" aria-labelledby="exampleModalCenterTitle"
+                                                                aria-hidden="true">
+                                                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <img src="img/imgeliminar.jpg"
+                                                                                width="50"
+                                                                                height="50">
+                                                                            ¿Desea Eliminar el Proyecto y todos sus Registros...?
+                                                                            <div class="modal-footer">
+                                                                                {!! Form::open(['route' => ['projects.destroy', $item->id], 'method' => 'DELETE']) !!}
+                                                                                <button class="btn btn-sm btn-info">Eliminar</button>
+                                                                                {!! Form::close() !!}
+                                                                                <button type="button" class="btn btn-sm btn-info"
+                                                                                    data-dismiss="modal">Cancelar</button>
+                                                                            </div>
+                                                                            
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
 
                                                             </td>
                                                         @endcan

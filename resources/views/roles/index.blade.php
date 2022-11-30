@@ -10,7 +10,7 @@
                 </div>
                 <div class="card-body">
                     @can('roles.create')
-                    <a href="{{route('roles.create')}}" class="btn btn-sm btn-primary">Crear Un Nuevo Role</a>
+                    <a href="{{route('roles.create')}}" class="btn btn-sm btn-primary">Crear Un Nuevo Rol</a>
                     @endcan
                     <br>
                     <div class="table-responsive">
@@ -69,9 +69,33 @@
                                     </td>
                                     <td width='15'>
                                         @can('roles.destroy')
-                                        {!!Form::open(['route'=>['users.destroy',$item->id],'onclick'=> "return confirm('Esta Seguro de Eliminar este Registro')",'method'=> 'DELETE'])!!}
-                                        <button class="btn btn-sm btn-danger">Eliminar</button>
-                                        {!! Form::close() !!}
+                                        <button type="button" class="btn btn-sm btn-danger" data-toggle="modal"
+                                        data-target="#modal2{{ $item->id }}">
+                                        Eliminar
+                                    </button>
+                                    <div class="modal fade" id="modal2{{ $item->id }}" tabindex="-1"
+                                        role="dialog" aria-labelledby="exampleModalCenterTitle"
+                                        aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img src="img/imgeliminar.jpg"
+                                                        width="50"
+                                                        height="50">
+                                                    ¿Desea Eliminar el Rol Seleccionado...?
+                                                    <div class="modal-footer">
+                                                        {!! Form::open(['route' => ['roles.destroy', $item->id], 'method' => 'DELETE']) !!}
+                                                        <button class="btn btn-sm btn-info">Eliminar</button>
+                                                        {!! Form::close() !!}
+                                                        <button type="button" class="btn btn-sm btn-info"
+                                                            data-dismiss="modal">Cancelar</button>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
                                         @endcan
                                     </td>
                                 </tr>

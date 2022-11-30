@@ -40,8 +40,8 @@
                                                         <p><strong>Nombre:</strong> {{$item->name}}</p>
                                                         <p><strong>Correo Electronico: </strong> {{$item->email}}</p>
                                                         <p><strong>Direccion Domicilio: </strong> {{$item->direccion}}</p>
-                                                        <p><strong>Telefono/Celular; </strong> {{$item->telefono}}</p>
-                                                        <p><strong>Fecha de Nacimiento </strong> {{$item->fechanacimiento}}</p>
+                                                        <p><strong>Telefono/Celular: </strong> {{$item->telefono}}</p>
+                                                        <p><strong>Fecha de Nacimiento: </strong> {{$item->fechanacimiento}}</p>
                                                         
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
@@ -58,9 +58,33 @@
                                     </td>
                                     <td width='15'>
                                         @can('users.destroy')
-                                        {!!Form::open(['route'=>['users.destroy',$item->id],'onclick'=> "return confirm('Esta Seguro de Eliminar este Registro')",'method'=> 'DELETE'])!!}
-                                        <button class="btn btn-sm btn-danger">Eliminar</button>
-                                        {!! Form::close() !!}
+                                        <button type="button" class="btn btn-sm btn-danger" data-toggle="modal"
+                                        data-target="#modal2{{ $item->id }}">
+                                        Eliminar
+                                    </button>
+                                    <div class="modal fade" id="modal2{{ $item->id }}" tabindex="-1"
+                                        role="dialog" aria-labelledby="exampleModalCenterTitle"
+                                        aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img src="img/imgeliminar.jpg"
+                                                        width="50"
+                                                        height="50">
+                                                    ¿Desea Eliminar el Usuario Seleccionado...?
+                                                    <div class="modal-footer">
+                                                        {!! Form::open(['route' => ['users.destroy', $item->id], 'method' => 'DELETE']) !!}
+                                                        <button class="btn btn-sm btn-info">Eliminar</button>
+                                                        {!! Form::close() !!}
+                                                        <button type="button" class="btn btn-sm btn-info"
+                                                            data-dismiss="modal">Cancelar</button>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
                                         @endcan
                                     </td>
                                 </tr>

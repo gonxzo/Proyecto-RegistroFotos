@@ -89,7 +89,7 @@
         <strong>NOMBRE DEL PROYECTO: </strong> {{ $project->name }}<br>
         <strong>TIPO DE PROYECTO: </strong> {{ $project->typeproject }}<br>
         <strong>--------------------------------------------------------------------------------------------------------------------------------------- </strong>
-        <strong>FECHA DE INICIA: </strong> {{ $project->dateb."      "}}<strong>FECHA FIN: </strong>{{ $project->datef."      "}}<strong>FECHA DE ENTREGA: </strong> {{ $project->dateentry }} <br>
+        <strong>FECHA DE INICIO DEL PROYECTO: </strong> {{ $project->dateb."      "}}<<br><strong>FECHA DE FINALIZACION DEL PROYECTO: </strong>{{ $project->datef."      "}}<br><strong>FECHA DE ENTREGA DEL PROYECTO: </strong> {{ $project->dateentry }} <br>
         <strong>--------------------------------------------------------------------------------------------------------------------------------------- </strong>
         <strong>SUPERFICIE UTIL: </strong> {{ $project->surface }}<br>
         <strong>--------------------------------------------------------------------------------------------------------------------------------------- </strong>

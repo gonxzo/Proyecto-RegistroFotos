@@ -26,7 +26,7 @@
       <strong> {!! Form::label('datef','Fecha Final') !!}</strong>
       <input type="date" class="form-control" onKeyUp="this.value=this.value.toUpperCase();" name="datef" id="datef" value="{{old('datef')}}">
       @error('datef')
-          <small> <H6 style="color:red;">*Introduzca Fecha Final</H6> </small>
+          <small> <H6 style="color:red;">*Introduzca Fecha De Finalización</H6> </small>
       @enderror
   </div>
   <div class="form-group col-md-4">
@@ -72,7 +72,7 @@
 
 <div class="form-row">
   <div class="form-group col-md-12">
-      <strong> {!! Form::label('latlon','Ubicacion Geofrafica') !!}</strong>
+      <strong> {!! Form::label('latlon','Ubicacion Geografica') !!}</strong>
       <input type="text" class="form-control" onKeyUp="this.value=this.value.toUpperCase();" name="latlon" id="textmap" value="{{old('latlon')}}">
       @error('latlon')
           <small> <H6 style="color:red;">*Introduzca Ubcacion</H5> </small>

@@ -91,9 +91,36 @@
                                             </td>
                                             <td width=10px>
                                                 @can('workers.destroy')
-                                                    {!! Form::open(['route' => ['workers.destroy', $item->id], 'onclick' => "return confirm('Esta Seguro de Eliminar este Registro')", 'method' => 'DELETE']) !!}
-                                                    <button class="btn btn-sm btn-danger">Eliminar</button>
-                                                    {!! Form::close() !!}
+                                                    
+                                                <button type="button" class="btn btn-sm btn-danger" data-toggle="modal"
+                                                        data-target="#modal2{{ $item->id }}">
+                                                        Eliminar
+                                                    </button>
+                                                    <div class="modal fade" id="modal2{{ $item->id }}" tabindex="-1"
+                                                        role="dialog" aria-labelledby="exampleModalCenterTitle"
+                                                        aria-hidden="true">
+                                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <img src="img/imgeliminar.jpg"
+                                                                        
+                                                                        width="50"
+                                                                        height="50">
+                                                                    ¿Esta seguro que desea Eliminar el trabajador actual...?
+                                                                    <div class="modal-footer">
+                                                                        {!! Form::open(['route' => ['workers.destroy', $item->id], 'method' => 'DELETE']) !!}
+                                                                        <button class="btn btn-sm btn-info">Eliminar</button>
+                                                                        {!! Form::close() !!}
+                                                                        <button type="button" class="btn btn-sm btn-info"
+                                                                            data-dismiss="modal">Cancelar</button>
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                
                                                 @endcan
                                             </td>
 
